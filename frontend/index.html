@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocktail API</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Cocktail API</h1>
+  </header>
+  <main>
+    <section id="cocktails-list">
+      <h2>Available Cocktails</h2>
+      <div id="cocktails"></div>
+    </section>
+
+    <section id="add-cocktail">
+      <h2>Add a New Cocktail</h2>
+      <form id="cocktail-form">
+        <input type="text" id="name" placeholder="Cocktail Name" required>
+        <input type="text" id="img" placeholder="Image URL" required>
+        <div id="ingredients-container">
+          <label>Ingredients:</label>
+          <textarea class="ingredient" placeholder="Ingredient 1" required></textarea>
+        </div>
+        <button type="button" id="add-ingredient">+ Add Ingredient</button>
+        <textarea id="description" placeholder="Description" required></textarea>
+        <button type="submit">Add Cocktail</button>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

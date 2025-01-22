@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "name": "Piña Colada",
+    "img": "https://havana-club.com/wp-content/uploads/cache/2020/10/04_HC3_PINACOLADA_0275_BASE/3017869276.png",
+    "ingredients": [
+      "Rhum blanc",
+      "Rhum ambré",
+      "Jus d'ananas",
+      "Lait de coco"
+    ],
+    "like": 1,
+    "dislike": 0,
+    "description": "Cocktail d'une consistance crémeuse, mousseuse, et onctueuse."
+  },
+  {
+    "id": 2,
+    "name": "Sex on the Beach",
+    "img": "https://commons.wikimedia.org/wiki/File:Sex_on_the_beach.png",
+    "ingredients": [
+      "Vodka",
+      "Chambord",
+      "Jus de cranberry",
+      "Crème de pêche",
+      "Jus d'orange"
+    ],
+    "like": 1,
+    "dislike": 0,
+    "description": "Cocktail mélangeant douceur et saveur le tout avec un soupçon de fraicheur."
+  }
+]
