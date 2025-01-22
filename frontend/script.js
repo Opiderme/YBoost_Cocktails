@@ -3,12 +3,18 @@ const API_URL = "/api/cocktails";
 // State to track the user's like/dislike selection
 const userSelections = {};
 
+let allCocktails = []; // To store all cocktails for filtering purposes
+
 // Fetch cocktails and display them
 async function fetchCocktails() {
   const response = await fetch(API_URL);
-  const cocktails = await response.json();
+  allCocktails = await response.json(); // Store all cocktails in a variable
+  displayCocktails(allCocktails); // Display all cocktails initially
+}
+
+function displayCocktails(cocktails) {
   const cocktailsDiv = document.getElementById("cocktails");
-  cocktailsDiv.innerHTML = "";
+  cocktailsDiv.innerHTML = ""; // Clear current list
   cocktails.forEach(cocktail => {
     const cocktailDiv = document.createElement("div");
     cocktailDiv.className = "cocktail";
@@ -26,18 +32,47 @@ async function fetchCocktails() {
         </button>
       </p>
     `;
+    
+    // Add event listener to handle card clicks explicitly
+    cocktailDiv.addEventListener("click", (e) => {
+      // Check if the click target is NOT a button
+      if (e.target.tagName !== "BUTTON") {
+        // Ensure this is not a text selection action
+        const selection = window.getSelection();
+        if (!selection || selection.toString().length === 0) {
+          displayCocktails([cocktail]); // Show only the clicked cocktail
+        }
+      }
+    });
+
     cocktailsDiv.appendChild(cocktailDiv);
   });
 
   // Attach event listeners for like and dislike buttons
   document.querySelectorAll(".like-button").forEach(button => {
-    button.addEventListener("click", () => handleLikeDislike(button.dataset.id, "like"));
+    button.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent triggering the click on the cocktail container
+      handleLikeDislike(button.dataset.id, "like");
+    });
   });
 
   document.querySelectorAll(".dislike-button").forEach(button => {
-    button.addEventListener("click", () => handleLikeDislike(button.dataset.id, "dislike"));
+    button.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent triggering the click on the cocktail container
+      handleLikeDislike(button.dataset.id, "dislike");
+    });
   });
 }
+
+// Filter cocktails based on search query
+document.getElementById("search-bar").addEventListener("input", (event) => {
+  const query = event.target.value.toLowerCase();
+  const filteredCocktails = allCocktails.filter(cocktail =>
+    cocktail.name.toLowerCase().includes(query) ||
+    cocktail.ingredients.some(ingredient => ingredient.toLowerCase().includes(query))
+  );
+  displayCocktails(filteredCocktails); // Update the displayed list
+});
 
 // Handle like/dislike button interaction
 async function handleLikeDislike(cocktailId, action) {

@@ -16,16 +16,29 @@
   {
     "id": 2,
     "name": "Sex on the Beach",
-    "img": "https://commons.wikimedia.org/wiki/File:Sex_on_the_beach.png",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Sex_on_the_beach.png/481px-Sex_on_the_beach.png?20151223134320",
     "ingredients": [
       "Vodka",
       "Chambord",
       "Jus de cranberry",
-      "Crème de pêche",
-      "Jus d'orange"
+      "1 Crème de pêche",
+      "4cl Jus d'ananas"
     ],
     "like": 1,
     "dislike": 0,
     "description": "Cocktail mélangeant douceur et saveur le tout avec un soupçon de fraicheur."
+  },
+  {
+    "id": 3,
+    "name": "La Démodée",
+    "img": "https://thumbs.dreamstime.com/b/cocktail-d%C3%A9mod%C3%A9-avec-l-orange-et-la-cerise-d-isolement-sur-le-fond-blanc-144918172.jpg",
+    "ingredients": [
+      "Whisky",
+      "Surcre Liquide",
+      "Angostura (bitters)"
+    ],
+    "like": 1,
+    "dislike": 0,
+    "description": "DAT ASS"
   }
 ]
